@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unos Vijesti ili Proizvoda</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img class="logos" src="slike/Stern_Logo.png" alt="Logo">
+        </div>
+        <div class="heder">
+            <h1 class="stern">stern</h1>
+            <nav class="navigacijaclanak">
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="kategorija.php?kategorija=Politika">Politika</a></li>
+                    <li><a href="kategorija.php?kategorija=Ostalo">Ostalo</a></li>
+                    <li><a href="administrator.php">Administracija</a></li>
+                    <li><a href="unos.html">Unos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Unos Nove Vijesti ili Proizvoda</h2>
+            <form id="newsForm" action="skripta.php" method="post" enctype="multipart/form-data">
+                <label for="naslov">Naslov vijesti:</label>
+                <input type="text" id="naslov" name="naslov" required><br>
+                <div id="naslovError" class="error-message"></div>
+                
+                <label for="sazetak">Sažetak vijesti:</label>
+                <textarea id="sazetak" name="sazetak" rows="4" required></textarea><br>
+                <div id="sazetakError" class="error-message"></div>
+                
+                <label for="tekst">Tekst vijesti:</label>
+                <textarea id="tekst" name="tekst" rows="8" required></textarea><br>
+                <div id="tekstError" class="error-message"></div>
+                
+                <label for="kategorija">Kategorija:</label>
+                <select id="kategorija" name="kategorija" required>
+                    <option value="">Odaberite kategoriju</option>
+                    <option value="Politika">Politika</option>
+                    <option value="Ostalo">Ostalo</option>
+                    <!-- Dodajte više kategorija po potrebi -->
+                </select><br>
+                <div id="kategorijaError" class="error-message"></div>
+                
+                <label for="slika">Odaberi sliku:</label>
+                <input type="file" id="slika" name="slika" required><br>
+                <div id="slikaError" class="error-message"></div>
+                
+                <label for="arhiva">Arhiviraj:</label>
+                <input type="checkbox" id="arhiva" name="arhiva"><br>
+                
+                <input type="submit" value="Pošalji">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Petar Todorić | ptodoric@tvz.hr | 2024</p>
+    </footer>
+
+    <script>
+        document.getElementById('newsForm').addEventListener('submit', function(event) {
+            let valid = true;
+            
+            // Naslov vijesti
+            const naslov = document.getElementById('naslov');
+            const naslovError = document.getElementById('naslovError');
+            if (naslov.value.length < 5 || naslov.value.length > 30) {
+                naslov.classList.add('error');
+                naslovError.textContent = "Naslov mora imati između 5 i 30 znakova.";
+                valid = false;
+            } else {
+                naslov.classList.remove('error');
+                naslovError.textContent = "";
+            }
+
+            // Sažetak vijesti
+            const sazetak = document.getElementById('sazetak');
+            const sazetakError = document.getElementById('sazetakError');
+            if (sazetak.value.length < 10 || sazetak.value.length > 100) {
+                sazetak.classList.add('error');
+                sazetakError.textContent = "Sažetak mora imati između 10 i 100 znakova.";
+                valid = false;
+            } else {
+                sazetak.classList.remove('error');
+                sazetakError.textContent = "";
+            }
+
+            // Tekst vijesti
+            const tekst = document.getElementById('tekst');
+            const tekstError = document.getElementById('tekstError');
+            if (tekst.value.trim() === "") {
+                tekst.classList.add('error');
+                tekstError.textContent = "Tekst vijesti ne smije biti prazan.";
+                valid = false;
+            } else {
+                tekst.classList.remove('error');
+                tekstError.textContent = "";
+            }
+
+            // Kategorija
+            const kategorija = document.getElementById('kategorija');
+            const kategorijaError = document.getElementById('kategorijaError');
+            if (kategorija.value === "") {
+                kategorija.classList.add('error');
+                kategorijaError.textContent = "Morate odabrati kategoriju.";
+                valid = false;
+            } else {
+                kategorija.classList.remove('error');
+                kategorijaError.textContent = "";
+            }
+
+            // Slika
+            const slika = document.getElementById('slika');
+            const slikaError = document.getElementById('slikaError');
+            if (slika.files.length === 0) {
+                slika.classList.add('error');
+                slikaError.textContent = "Morate odabrati sliku.";
+                valid = false;
+            } else {
+                slika.classList.remove('error');
+                slikaError.textContent = "";
+            }
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

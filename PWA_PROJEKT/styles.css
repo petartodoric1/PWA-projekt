@@ -1,0 +1,258 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    
+    color: white;
+    display: flex;
+    
+    align-items: center;
+    padding: 5px 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+.heder{
+    display: flex;
+    flex-direction: column;
+
+}
+
+header .logo img {
+   
+    margin-right: 5px;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover{
+    color: red;
+}
+main {
+    flex: 1;
+    padding: 5px;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    font-size: 2em;
+    border-bottom: 2px solid #e60000;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.articles-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.articles-row article {
+    flex: 0 1 calc(33.333% - 20px); /* Adjusted width to fit three articles in a row */
+    max-width: 300px;
+    text-align: left;
+}
+
+.articles-row img {
+    width: 100%;
+    height: 170px;
+    max-width: 300px;
+}
+
+.article-h5{
+    text-align: left;
+    color:#e60000;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.articles-row h3 {
+    margin: 10px 0;
+}
+
+.articles-row h3 a {
+    text-decoration: none;
+    color: #000;
+}
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+     .articles-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .articles-row {
+        align-items: center;
+    }
+}
+
+@media (max-width: 465px) {
+    header {
+       flex-direction: column;
+       align-items: flex-start;
+   }
+
+  
+}
+@media (max-width: 380px) {
+    ul {
+       flex-direction: column;
+       align-items: flex-start;
+   }
+
+  
+}
+
+.full-article {
+width: 100%;
+max-width: 800px;
+    align-items: center;
+}
+.clanakslika{
+    
+    width: 100%;
+    max-width: 800px;
+}
+.mainclanak{
+    flex: 1;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Novo: centriranje sadržaja u sredinu */
+    flex-direction: column; /* Novo: promjena smjera flex kontejnera */
+}
+
+.navigacijaclanak{
+    align-items: left;
+}
+.stern{
+    color: #000;
+    font-style: oblique;
+    font-weight: 900;
+}
+.logos{
+    width: 100%;
+    max-width: 80px;
+    height: 100px;
+}
+.naslovclanka{
+    font-weight: 800;
+}
+
+/* Styles for the HTML form */
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea,
+form select,
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+form input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.adminforma{
+    padding: 0;
+}
+
+.admingumb{
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
